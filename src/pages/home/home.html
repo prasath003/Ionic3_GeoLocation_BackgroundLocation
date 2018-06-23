@@ -1,14 +1,24 @@
 <ion-header>
+
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title>Home</ion-title>
   </ion-navbar>
+
 </ion-header>
 
+
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <div text-center>
+    <h3>{{data}}</h3><br><br>
+
+    <button ion-button (click)="requestPermisson()">Request Permission in Android</button><br>
+
+    <button ion-button (click)="startForegroundTime()">Start Foreground with timeout</button><br>
+    <button ion-button (click)="startForegroundNoTime()">Start Foreground without timeout</button><br>
+    <button ion-button (click)="startBackground()">Start Background geolocation Background</button><br>
+    <button ion-button (click)="startBackgroundForeground()">Start Background geolcation Foreground</button><br>
+    <button ion-button (click)="stopBackground()">Stop only background is running</button><br>
+  </div>
+
 </ion-content>
