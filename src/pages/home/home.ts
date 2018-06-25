@@ -21,55 +21,78 @@ export class HomePage {
   }
 
   async requestPermisson() {
-    this.platform.ready().then(async (readySource) => {
-      await this.locationServe.getPermission();
-    }).catch(err => {
-      alert("Platform Error :" + JSON.stringify(err));
-    });
+    try {
+      this.platform.ready().then(async (readySource) => {
+        await this.locationServe.getPermission();
+      }).catch(err => {
+        alert("Platform Error :" + JSON.stringify(err));
+      });
+    } catch (e) {
+      alert(JSON.stringify(e));
+    }
   }
 
   async startForegroundTime() {
-    this.platform.ready().then(async (readySource) => {
-      this.data = await this.locationServe.startForegroundTimeout();
-    }).catch(err => {
-      alert("Platform Error :" + JSON.stringify(err));
-    });
+    try {
+      this.platform.ready().then(async (readySource) => {
+        this.data = await this.locationServe.startForegroundTimeout();
+      }).catch(err => {
+        alert("Platform Error :" + JSON.stringify(err));
+      });
+    } catch (e) {
+      alert(JSON.stringify(e));
+    }
   }
 
 
   async startForegroundNoTime() {
-    this.platform.ready().then(async (readySource) => {
-       await this.locationServe.getLocationAccuracy();
+    try {
+      this.platform.ready().then(async (readySource) => {
+        await this.locationServe.getLocationAccuracy();
 
-       this.data = await this.locationServe.startForegroundNoTimeout();
+        this.data = await this.locationServe.startForegroundNoTimeout();
 
-    }).catch(err => {
-      alert("Platform Error :" + JSON.stringify(err));
-    });
+      }).catch(err => {
+        alert("Platform Error :" + JSON.stringify(err));
+      });
+    } catch (e) {
+      alert(JSON.stringify(e));
+    }
   }
 
   async startBackground() {
-    this.platform.ready().then(async (readySource) => {
-      this.data = await this.locationServe.startBackGroundLocationTracking();
-    }).catch(err => {
-      alert("Platform Error :" + JSON.stringify(err));
-    });
+    try {
+      this.platform.ready().then(async (readySource) => {
+        this.data = await this.locationServe.startBackGroundLocationTracking();
+      }).catch(err => {
+        alert("Platform Error :" + JSON.stringify(err));
+      });
+    } catch (e) {
+      alert(JSON.stringify(e));
+    }
   }
 
   async startBackgroundForeground() {
-    this.platform.ready().then(async (readySource) => {
-      this.data = await this.locationServe.startBackGroundLocationTrackingForeground();
-    }).catch(err => {
-      alert("Platform Error :" + JSON.stringify(err));
-    });
+    try {
+      this.platform.ready().then(async (readySource) => {
+        this.data = await this.locationServe.startBackGroundLocationTrackingForeground();
+      }).catch(err => {
+        alert("Platform Error :" + JSON.stringify(err));
+      });
+    } catch (e) {
+      alert(JSON.stringify(e));
+    }
   }
 
   async stopBackground() {
-    this.platform.ready().then(async (readySource) => {
-      await this.locationServe.stopBackGroundLocationTracking();
-    }).catch(err => {
-      alert("Platform Error :" + JSON.stringify(err));
-    });
+    try {
+      this.platform.ready().then(async (readySource) => {
+        await this.locationServe.stopBackGroundLocationTracking();
+      }).catch(err => {
+        alert("Platform Error :" + JSON.stringify(err));
+      });
+    } catch (e) {
+      alert(JSON.stringify(e));
+    }
   }
-
 }
